@@ -1,0 +1,314 @@
+[
+ {
+  "path": "D:/Books/AI & ML/AI Engineering/[O'Reilly] AI Engineering_Building Applications with Foundation Models_Chip Huyen.pdf",
+  "about": "Covers the full workflow of building products on top of existing foundation models rather than training them from scratch. It walks through how models are evaluated, prompt engineering, retrieval-augmented generation, agents, finetuning, dataset preparation, inference optimization, and how to structure feedback and monitoring in production. The emphasis is on engineering trade-offs and evaluation.",
+  "kind": "Practical guide",
+  "topics": [
+   "foundation models",
+   "evaluation",
+   "RAG",
+   "finetuning",
+   "inference",
+   "agents"
+  ],
+  "level": "Intermediate",
+  "readIf": "Read it if you build or plan LLM-powered applications and want a systematic view of the whole stack beyond prompt tricks.",
+  "takeaway": "Building with foundation models is mostly an engineering problem of evaluation, data and iteration, not just prompting."
+ },
+ {
+  "path": "D:/Books/AI & ML/AI Engineering/[O'Reilly] AI-Powered Business Intelligence_Improve Forecasts and Decision Making with Machine Learning_Tobias Zwingmann.pdf",
+  "about": "Shows how analysts and BI teams can add machine learning to reporting and forecasting work, often using low-code or cloud tools rather than heavy custom modeling. It covers framing business problems, preparing data, building predictive models, and putting results into dashboards used for decisions.",
+  "kind": "Practical guide",
+  "topics": [
+   "business intelligence",
+   "forecasting",
+   "machine learning",
+   "analytics",
+   "low-code"
+  ],
+  "level": "Beginner",
+  "readIf": "Read it if you work in analytics or BI and want to bring predictions into your reports without becoming an ML specialist.",
+  "takeaway": "Machine learning is most valuable to a business when its predictions are wired into the dashboards and decisions people already use."
+ },
+ {
+  "path": "D:/Books/AI & ML/AI Engineering/[O'Reilly] Al and Machine Learning for Coders.pdf",
+  "about": "A hands-on introduction to machine learning for programmers, built around TensorFlow and Keras. It starts with basic neural networks and moves through computer vision, convolutional networks, natural language processing, sequence models and deploying models to devices. The focus is on writing working code rather than the underlying math.",
+  "kind": "Practical guide",
+  "topics": [
+   "TensorFlow",
+   "Keras",
+   "computer vision",
+   "NLP",
+   "deployment"
+  ],
+  "level": "Beginner",
+  "readIf": "Read it if you can code and want a quick, code-first route into building and shipping simple ML models.",
+  "takeaway": "You can get useful neural networks running with a few lines of high-level code before mastering the theory."
+ },
+ {
+  "path": "D:/Books/AI & ML/AI Engineering/[O'Reilly] Beyond Vibe Coding From Coder to AI-Era Developer.pdf",
+  "about": "Discusses how developers can use AI coding assistants responsibly, contrasting loose prompt-and-accept vibe coding with disciplined AI-assisted engineering. It covers working with these tools on real projects, reviewing generated code, and keeping the engineer in charge of design and quality.",
+  "kind": "Practical guide",
+  "topics": [
+   "AI coding assistants",
+   "vibe coding",
+   "software engineering",
+   "code review"
+  ],
+  "level": "Intermediate",
+  "readIf": "Read it if you already use AI coding tools and want habits that keep the output maintainable and trustworthy.",
+  "takeaway": "AI tools speed up development, but the developer must still own design, review and quality."
+ },
+ {
+  "path": "D:/Books/AI & ML/AI Engineering/eBook-How-to-Build-a-Career-in-AI.pdf",
+  "about": "A short career guide from Andrew Ng for people entering or moving within AI. It discusses learning the necessary skills, working on projects, finding a job and building a network. It is advice-oriented rather than technical.",
+  "kind": "Practical guide",
+  "topics": [
+   "AI careers",
+   "learning path",
+   "projects",
+   "job search"
+  ],
+  "level": "Beginner",
+  "readIf": "Read it if you are planning your path into AI and want a practical roadmap from a well-known practitioner.",
+  "takeaway": "Steady learning, hands-on projects and community are what build an AI career."
+ },
+ {
+  "path": "D:/Books/AI & ML/Architecture/Design Patterns - Elements of Reusable Object Oriented Software.pdf",
+  "about": "The classic 'Gang of Four' catalog of 23 object-oriented design patterns, grouped into creational, structural and behavioral patterns. Each pattern is described with its intent, structure, trade-offs and sample code, plus a worked case study of a document editor.",
+  "kind": "Reference",
+  "topics": [
+   "design patterns",
+   "object-oriented",
+   "software architecture",
+   "reusability"
+  ],
+  "level": "Intermediate",
+  "readIf": "Read it if you write object-oriented code and want the shared vocabulary senior engineers use to discuss design.",
+  "takeaway": "Recurring design problems have well-named, reusable solutions that favor composition and loose coupling."
+ },
+ {
+  "path": "D:/Books/AI & ML/Architecture/[O'Reilly] Architecting Data and Machine Learning Platforms.pdf",
+  "about": "Describes how to design the data and ML platform an organization runs on, from ingestion and warehouses to analytics and model operations. It leans on cloud examples, particularly Google Cloud, and discusses organizational choices alongside technical ones.",
+  "kind": "Practical guide",
+  "topics": [
+   "data platforms",
+   "cloud architecture",
+   "ML platforms",
+   "data warehouse",
+   "MLOps"
+  ],
+  "level": "Intermediate",
+  "readIf": "Read it if you are designing or evaluating a data and ML platform and want a structured architecture view.",
+  "takeaway": "A unified platform serving both analytics and ML teams matters as much as any individual model."
+ },
+ {
+  "path": "D:/Books/AI & ML/Architecture/[O'Reilly] Building Applications with AI Agents Designing and Implementing Multiagent Systems.pdf",
+  "about": "Focuses on designing applications built from LLM-based agents, including how single agents use tools and how multiple agents coordinate. It looks at architecture choices, orchestration, memory, evaluation and safety concerns when agents act autonomously.",
+  "kind": "Practical guide",
+  "topics": [
+   "AI agents",
+   "multiagent systems",
+   "orchestration",
+   "tool use",
+   "evaluation"
+  ],
+  "level": "Intermediate",
+  "readIf": "Read it if you are building agent systems and want to understand design patterns and the pitfalls of coordination.",
+  "takeaway": "Reliable agent systems come from careful architecture, constrained tools and evaluation rather than just a clever prompt."
+ },
+ {
+  "path": "D:/Books/AI & ML/Architecture/[O'Reilly] Designing Machine Learning Systems.pdf",
+  "about": "Explains how to take machine learning from notebooks to production systems that can be maintained. It covers data engineering, feature engineering, training and evaluation, deployment, monitoring and continual learning, with attention to the iterative nature of real ML projects.",
+  "kind": "Practical guide",
+  "topics": [
+   "MLOps",
+   "production ML",
+   "data engineering",
+   "deployment",
+   "monitoring"
+  ],
+  "level": "Intermediate",
+  "readIf": "Read it if you want to understand what it takes to run ML in production beyond model training.",
+  "takeaway": "A production ML system is mostly data and infrastructure around the model, and it must keep adapting after launch."
+ },
+ {
+  "path": "D:/Books/AI & ML/Architecture/[O'Reilly] Generative AI Design Patterns.pdf",
+  "about": "A catalog of recurring patterns for building generative AI applications, such as controlling style and output, grounding with retrieval, extending model capabilities, and making systems reliable and safe. Each pattern describes a problem, a solution and trade-offs.",
+  "kind": "Reference",
+  "topics": [
+   "design patterns",
+   "generative AI",
+   "RAG",
+   "LLM applications",
+   "reliability"
+  ],
+  "level": "Intermediate",
+  "readIf": "Read it if you build LLM applications and want a toolbox of named solutions to common problems.",
+  "takeaway": "Many generative AI challenges map to reusable patterns that can be combined."
+ },
+ {
+  "path": "D:/Books/AI & ML/Architecture/[O'Reilly] Generative AI on Kubernetes Operationalizing Large Language Models.pdf",
+  "about": "Covers running and serving large language models on Kubernetes. Expect material on deployment, scaling, GPU resources, inference serving and operating generative AI workloads in a cloud-native environment.",
+  "kind": "Practical guide",
+  "topics": [
+   "Kubernetes",
+   "LLM serving",
+   "MLOps",
+   "GPUs",
+   "cloud-native"
+  ],
+  "level": "Advanced",
+  "readIf": "Read it if you operate infrastructure and need to host LLMs on Kubernetes.",
+  "takeaway": "Running LLMs well in production is an infrastructure and scheduling problem as much as a modeling one."
+ },
+ {
+  "path": "D:/Books/AI & ML/Architecture/[O'Reilly] Machine Learning Design Patterns_Solutions to Common Challenges in Data Preparation Model Building and MLOps.pdf",
+  "about": "A catalog of around thirty design patterns for machine learning work, organized around data representation, problem framing, model training, resilient serving, reproducibility and responsible AI. Each pattern states a problem, a solution and its trade-offs, with examples.",
+  "kind": "Reference",
+  "topics": [
+   "design patterns",
+   "ML engineering",
+   "feature engineering",
+   "MLOps",
+   "reproducibility"
+  ],
+  "level": "Intermediate",
+  "readIf": "Read it if you build ML systems and want proven solutions to recurring practical problems.",
+  "takeaway": "Common ML problems recur often enough to have named, reusable solutions."
+ },
+ {
+  "path": "D:/Books/AI & ML/Data Science/Data Mining Concepts and Techniques 3rd Edition.pdf",
+  "about": "A comprehensive university-level text on data mining. It covers data preprocessing, warehousing, frequent pattern and association mining, classification, clustering, outlier detection and mining of complex data, with algorithm-level explanations.",
+  "kind": "Textbook",
+  "topics": [
+   "data mining",
+   "classification",
+   "clustering",
+   "association rules",
+   "preprocessing"
+  ],
+  "level": "Advanced",
+  "readIf": "Read it if you want a thorough, algorithm-focused grounding in classic data mining methods.",
+  "takeaway": "Useful patterns can be systematically discovered in large datasets with well-understood algorithms."
+ },
+ {
+  "path": "D:/Books/AI & ML/Data Science/Exploratory Data Analysis with R.pdf",
+  "about": "A short book on exploring datasets using R before formal modeling. It covers graphs, summaries, simple numeric checks, clustering and dimension reduction, with worked examples and an emphasis on looking at data first.",
+  "kind": "Textbook",
+  "topics": [
+   "exploratory analysis",
+   "R",
+   "visualization",
+   "clustering",
+   "data exploration"
+  ],
+  "level": "Beginner",
+  "readIf": "Read it if you are learning R and want to build the habit of exploring data before modeling.",
+  "takeaway": "Look carefully at your data with plots and summaries before you fit models."
+ },
+ {
+  "path": "D:/Books/AI & ML/Data Science/Storytelling with data cole nussbaumer knaflic.pdf",
+  "about": "A guide to presenting data clearly. It covers choosing appropriate charts, removing clutter, directing attention with color and position, and structuring a narrative for an audience, illustrated with before-and-after examples.",
+  "kind": "Practical guide",
+  "topics": [
+   "data visualization",
+   "communication",
+   "charts",
+   "presentation",
+   "narrative"
+  ],
+  "level": "Beginner",
+  "readIf": "Read it if you need to present analysis to others and want your charts to be understood and acted on.",
+  "takeaway": "Good data communication means designing charts and narrative around what the audience needs to see."
+ },
+ {
+  "path": "D:/Books/AI & ML/Data Science/The Probability and Statistics Cookbook.pdf",
+  "about": "A compact cheat sheet of probability and statistics formulas. It lists common distributions, expectations, inequalities, estimators and hypothesis-testing results in dense reference form with little explanation.",
+  "kind": "Reference",
+  "topics": [
+   "probability",
+   "statistics",
+   "distributions",
+   "formulas"
+  ],
+  "level": "Intermediate",
+  "readIf": "Read it if you already know the topics and want a quick place to look up formulas.",
+  "takeaway": "A compact collection of the key probability and statistics results in one place."
+ },
+ {
+  "path": "D:/Books/AI & ML/Data Science/[O'Reilly] Data Science from Scratch.pdf",
+  "about": "Builds core data science tools by implementing them in plain Python rather than using libraries. It covers basics of statistics and linear algebra, gradient descent, and algorithms like regression, k-nearest neighbors, naive Bayes, decision trees, neural networks and clustering.",
+  "kind": "Textbook",
+  "topics": [
+   "Python",
+   "machine learning",
+   "statistics",
+   "algorithms",
+   "from scratch"
+  ],
+  "level": "Beginner",
+  "readIf": "Read it if you want to understand how common algorithms work by coding them yourself.",
+  "takeaway": "Implementing the algorithms yourself shows what libraries do under the hood."
+ },
+ {
+  "path": "D:/Books/AI & ML/Data Science/[O'Reilly] Database Internals.pdf",
+  "about": "A look at how databases work inside, in two parts: storage engines (B-trees, file formats, buffering, log-structured storage) and distributed systems (replication, consistency, consensus, failure detection). It is about database design rather than using databases.",
+  "kind": "Reference",
+  "topics": [
+   "storage engines",
+   "B-trees",
+   "distributed systems",
+   "consensus",
+   "replication"
+  ],
+  "level": "Advanced",
+  "readIf": "Read it if you want to understand how databases and distributed data systems are built, not just how to query them.",
+  "takeaway": "Database behavior follows from storage-engine and distributed-systems design choices and their trade-offs."
+ },
+ {
+  "path": "D:/Books/AI & ML/Data Science/[O'Reilly] Practical Statistics for Data Scientists.pdf",
+  "about": "A concise guide to the statistical ideas that matter in data science. It covers exploratory analysis, sampling, experiments and A/B tests, regression, classification, statistical machine learning and unsupervised learning, with examples in R and Python and an emphasis on practical use over proofs.",
+  "kind": "Practical guide",
+  "topics": [
+   "statistics",
+   "A/B testing",
+   "regression",
+   "sampling",
+   "machine learning"
+  ],
+  "level": "Intermediate",
+  "readIf": "Read it if you work with data and want the practical statistics concepts without heavy theory.",
+  "takeaway": "Know which statistical concepts matter in practice and which are less relevant for data science."
+ },
+ {
+  "path": "D:/Books/AI & ML/Data Science/[O'Reilly] Python Data Science Handbook - Jake VanderPlas.pdf",
+  "about": "Teaches the core Python data science toolkit: IPython and Jupyter, NumPy, Pandas, Matplotlib and an introduction to Scikit-Learn for machine learning. Chapters pair explanations with runnable examples.",
+  "kind": "Practical guide",
+  "topics": [
+   "NumPy",
+   "Pandas",
+   "Matplotlib",
+   "Scikit-Learn",
+   "Jupyter"
+  ],
+  "level": "Beginner",
+  "readIf": "Read it if you know basic Python and want fluency in the standard data science libraries.",
+  "takeaway": "The Python data stack lets you load, manipulate, visualize and model data efficiently."
+ },
+ {
+  "path": "D:/Books/AI & ML/Data Science/[O'Reilly] Python for Data Analysis - data wrangling with Pandas NumPy and IPython.pdf",
+  "about": "Written by the creator of Pandas, it teaches how to load, clean, transform, aggregate and visualize data using Pandas, NumPy and IPython. It includes time series, grouping and merging, with many worked examples.",
+  "kind": "Practical guide",
+  "topics": [
+   "Pandas",
+   "NumPy",
+   "data wrangling",
+   "time series",
+   "data cleaning"
+  ],
+  "level": "Beginner",
+  "readIf": "Read it if you want to do day-to-day data cleaning and analysis in Python.",
+  "takeaway": "Most analysis effort is wrangling data, and Pandas gives you the tools to do it well."
+ }
+]

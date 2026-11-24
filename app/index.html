@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>My Bookshelf</title>
+<meta name="description" content="A personal 3D bookshelf">
+<meta name="theme-color" content="#ffffff">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./shelf.css">
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <h1>My Bookshelf</h1>
+    <p id="stats"></p>
+  </div>
+  <div class="controls">
+    <input id="search" type="search" placeholder="Search title, author, collection…" aria-label="Search books">
+    <select id="sort" aria-label="Sort books">
+      <option value="title">Title</option>
+      <option value="author">Author</option>
+      <option value="series">Collection</option>
+      <option value="year">Year</option>
+      <option value="pages">Pages</option>
+    </select>
+    <button id="sync-btn" aria-label="Sync books to Google Drive" title="Sync to Google Drive">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21.5 2v6h-6"/>
+        <path d="M2.5 22v-6h6"/>
+        <path d="M2.5 11.5a10 10 0 0 1 16.5-5.3l2.5 2.8"/>
+        <path d="M21.5 12.5a10 10 0 0 1-16.5 5.3l-2.5-2.8"/>
+      </svg>
+      <span>Sync Drive</span>
+    </button>
+  </div>
+</header>
+
+<nav id="tabs" aria-label="Collections"></nav>
+
+<main id="viewport">
+  <div id="tape"></div>
+  <div id="under"></div>
+  <div id="plank"></div>
+  <div id="empty" hidden>
+    <p>No books match your search.</p>
+    <button id="empty-clear">Clear filters</button>
+  </div>
+</main>
+
+<aside id="detail" aria-hidden="true" inert role="dialog" aria-labelledby="detail-title">
+  <button id="detail-close" aria-label="Close book details">×</button>
+  <div id="detail-cover" role="img" aria-label="Book cover"></div>
+  <h2 id="detail-title"></h2>
+  <div id="detail-author"></div>
+  <div id="detail-about"></div>
+  <div id="detail-meta"></div>
+  <div class="actions">
+    <a id="detail-open" class="btn primary" target="_blank" rel="noopener">Open PDF</a>
+    <button id="detail-status" class="btn"></button>
+    <button id="detail-copy" class="btn ghost">Copy path</button>
+  </div>
+</aside>
+
+<div id="reader" aria-hidden="true" inert>
+  <div class="reader-bar">
+    <button id="reader-prev" aria-label="Previous book">&#8592;</button>
+    <button id="reader-next" aria-label="Next book">&#8594;</button>
+    <span id="reader-title"></span>
+    <a id="reader-external" href="#" target="_blank" rel="noopener">Open in new tab</a>
+    <button id="reader-close" aria-label="Close reader">&times;</button>
+  </div>
+  <iframe id="reader-frame" title="Book"></iframe>
+</div>
+
+<div id="shelf-nav">
+  <button id="shelf-prev" aria-label="Scroll shelf left">&#8592;</button>
+  <button id="shelf-next" aria-label="Scroll shelf right">&#8594;</button>
+</div>
+
+<div id="hint">scroll or drag to browse &middot; hover a spine &middot; click to open</div>
+<div id="toast" role="status"></div>
+
+<script src="./books.js"></script>
+<script src="./about.js"></script>
+<script src="./shelf.js"></script>
+</body>
+</html>

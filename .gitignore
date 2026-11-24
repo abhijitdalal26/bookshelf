@@ -1,0 +1,8 @@
+# books and anything generated from them stay local
+*.pdf
+*.epub
+app/books.js
+app/about.js
+refs/
+node_modules/
+_*.tmp.js
