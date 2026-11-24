@@ -77,47 +77,69 @@ function wrapTitle(title, maxChars, maxLines) {
 
 function makeCover(book) {
   const [bg, fg] = spineOf(book);
+  const W = 420, H = 600;
   const c = document.createElement("canvas");
-  c.width = 280; c.height = 400;
+  c.width = W; c.height = H;
   const g = c.getContext("2d");
 
+  // wrap text to a pixel width using the current font
+  const wrapPx = (text, maxW) => {
+    const lines = [];
+    let cur = "";
+    for (const w of text.split(" ")) {
+      const t = cur ? cur + " " + w : w;
+      if (g.measureText(t).width > maxW && cur) { lines.push(cur); cur = w; } else cur = t;
+    }
+    if (cur) lines.push(cur);
+    return lines;
+  };
+
   const draw = (img) => {
-    g.clearRect(0, 0, 280, 400);
+    g.clearRect(0, 0, W, H);
     if (img) {
+      // real cover art: shown clean, scaled to fill, no overlays
       const ar = img.width / img.height;
-      let dw = 280, dh = 280 / ar;
-      if (dh < 400) { dh = 400; dw = 400 * ar; }
-      g.drawImage(img, (280 - dw) / 2, (400 - dh) / 2, dw, dh);
-      const grad = g.createLinearGradient(0, 170, 0, 400);
-      grad.addColorStop(0, "rgba(0,0,0,0)");
-      grad.addColorStop(1, "rgba(12,10,8,.9)");
-      g.fillStyle = grad; g.fillRect(0, 0, 280, 400);
-    } else {
-      g.fillStyle = bg; g.fillRect(0, 0, 280, 400);
-      for (let i = 0; i < 700; i++) {
-        g.fillStyle = Math.random() < 0.5 ? "rgba(0,0,0,.05)" : "rgba(255,255,255,.04)";
-        g.fillRect(Math.random() * 280, Math.random() * 400, 2, 2);
-      }
-      g.strokeStyle = fg; g.globalAlpha = .8; g.lineWidth = 3;
-      g.strokeRect(15, 15, 250, 370);
-      g.globalAlpha = .4; g.lineWidth = 1;
-      g.strokeRect(23, 23, 234, 354);
-      g.globalAlpha = 1;
-      g.fillStyle = bandOf(book); g.fillRect(15, 15, 250, 46);
+      let dw = W, dh = W / ar;
+      if (dh < H) { dh = H; dw = H * ar; }
+      g.drawImage(img, (W - dw) / 2, (H - dh) / 2, dw, dh);
+      return c.toDataURL("image/jpeg", 0.92);
     }
-    const textColor = img ? "#F5F1E8" : fg;
-    const lines = wrapTitle(book.title.toUpperCase(), 20, 4);
-    g.fillStyle = textColor;
-    g.textAlign = "center";
-    const size = img ? (lines.length > 3 ? 26 : 30) : (lines.length > 3 ? 30 : 36);
-    g.font = `700 ${size}px system-ui, sans-serif`;
-    const startY = img ? 322 - (lines.length - 1) * 32 : 190 - (lines.length - 1) * size * 0.55;
-    lines.forEach((ln, i) => g.fillText(ln, 140, startY + i * (size * 1.15)));
+
+    // no cover found: editorial typographic cover in the book's spine colours
+    g.fillStyle = bg; g.fillRect(0, 0, W, H);
+    const sheen = g.createLinearGradient(0, 0, W, H);
+    sheen.addColorStop(0, "rgba(255,255,255,.07)");
+    sheen.addColorStop(1, "rgba(0,0,0,.14)");
+    g.fillStyle = sheen; g.fillRect(0, 0, W, H);
+
+    g.fillStyle = bandOf(book); g.fillRect(0, 0, W, 78);
+    g.fillStyle = bg;
+    g.textAlign = "left"; g.textBaseline = "alphabetic";
+    g.font = "700 20px system-ui, sans-serif";
+    g.letterSpacing = "3px";
+    g.fillText(topOf(book.series).toUpperCase().slice(0, 22), 36, 48);
+    g.letterSpacing = "0px";
+
+    const title = book.title.replace(/^\[[^\]]+\]\s*/, "");
+    let size = 60, lines;
+    for (; size >= 36; size -= 4) {
+      g.font = `800 ${size}px system-ui, sans-serif`;
+      lines = wrapPx(title, W - 72);
+      if (lines.length <= 6) break;
+    }
+    lines = lines.slice(0, 6);
+    g.fillStyle = fg;
+    lines.forEach((ln, i) => g.fillText(ln, 36, 170 + i * size * 1.08));
+
+    g.fillStyle = fg; g.globalAlpha = .5; g.fillRect(36, H - 112, 56, 4); g.globalAlpha = 1;
     if (book.author) {
-      g.font = "500 16px system-ui, sans-serif";
-      g.fillText(book.author.slice(0, 32), 140, img ? 384 : 350);
+      g.font = "600 22px system-ui, sans-serif";
+      g.letterSpacing = "2px";
+      wrapPx(book.author.toUpperCase(), W - 72).slice(0, 2)
+        .forEach((ln, i) => g.fillText(ln, 36, H - 70 + i * 28));
+      g.letterSpacing = "0px";
     }
-    return c.toDataURL("image/jpeg", 0.85);
+    return c.toDataURL("image/jpeg", 0.92);
   };
 
   if (book.cover) {
@@ -135,6 +157,10 @@ function makeCover(book) {
 
 const coverEls = new Map(); // book -> [elements]
 function applyCover(book) {
+  // keep an open detail panel in step when the real cover arrives late
+  if (typeof currentBook !== "undefined" && currentBook === book) {
+    document.getElementById("detail-cover").style.backgroundImage = `url("${book._coverURL}")`;
+  }
   (coverEls.get(book) || []).forEach((el) => {
     el.style.backgroundImage = `url("${book._coverURL}")`;
   });
@@ -220,16 +246,16 @@ const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
 function dimsFor(book) {
   const r = book._h;
   if (isMobile()) {
-    return { ws: 34 + (r % 10), h: 210 + ((r >> 5) % 30), d: 150 + ((r >> 11) % 25), base: 120 };
+    return { ws: 34 + (r % 10), h: 226 + ((r >> 5) % 10), d: 150 + ((r >> 11) % 25), base: 120 };
   }
-  return { ws: 46 + (r % 18), h: 290 + ((r >> 5) % 50), d: 200 + ((r >> 11) % 40), base: 170 };
+  return { ws: 46 + (r % 18), h: 322 + ((r >> 5) % 12), d: 200 + ((r >> 11) % 40), base: 170 };
 }
 
 // "[O'Reilly] Title" -> "Title" on the spine
 const spineTitle = (t) => t.replace(/^\[[^\]]+\]\s*/, "");
 
 // tab = top-level collection ("History / Will Durant" -> "History")
-const topOf = (s) => (s || "").split(" / ")[0];
+function topOf(s) { return (s || "").split(" / ")[0]; }
 
 // looping tape: three copies of the set, pos wraps inside the middle one
 let loop = false, setW = 0;
@@ -266,6 +292,7 @@ function render() {
     el.className = "book";
     el.style.setProperty("--i", Math.min(i, 24));
     el.dataset.path = book.path;
+    el.dataset.cx = x + ws / 2;
     el.style.transform = `translate3d(${x + ws / 2}px, ${base - h / 2}px, 0)`;
     el.style.setProperty("--w", ws + "px");
     el.style.setProperty("--h", h + "px");
@@ -309,8 +336,10 @@ function render() {
     el.appendChild(vol);
     frag.appendChild(el);
 
-    const open = () => openBook(book, el);
+    const open = () => (el.classList.contains("sel") ? openBook(book, el) : selectBook(book, el));
+    el._open = open;
     spine.addEventListener("click", (e) => { e.stopPropagation(); open(); });
+    cover.addEventListener("click", (e) => { e.stopPropagation(); open(); }); // the cover is what you see on hover
     spine.addEventListener("keydown", (e) => {
       if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(); }
     });
@@ -331,6 +360,23 @@ function render() {
 function bounds() {
   posMin = shown.length ? dimsFor(shown[0]).ws / 2 : 0;
   posMax = Math.max(posMin, tapeWidth - (shown.length ? dimsFor(shown[shown.length - 1]).ws / 2 : 0));
+}
+
+// slide the tape so a book sits centred in the space the detail panel leaves free
+function centerOn(el) {
+  let cx = +el.dataset.cx;
+  if (loop) cx += Math.round((pos - cx) / setW) * setW; // nearest copy
+  const shift = isMobile() ? 0 : Math.min(200, viewport.clientWidth * 0.15);
+  target = clampT(cx + shift);
+  startLoop();
+}
+
+// pick a random book from what is shown
+function randomBook() {
+  if (!shown.length) return;
+  const i = Math.floor(Math.random() * shown.length);
+  const el = document.querySelectorAll(".book")[(loop ? shown.length : 0) + i];
+  if (el) openBook(shown[i], el);
 }
 
 // scroll by roughly half a screen (arrow buttons)
@@ -422,7 +468,7 @@ addEventListener("keydown", (e) => {
     else if (e.key === "ArrowRight") readerStep(1);
     return;
   }
-  if (e.key === "Escape") { closeDetail(); return; }
+  if (e.key === "Escape") { if (detail.classList.contains("shown")) closeDetail(); else clearSelection(); return; }
   const t = e.target;
   if (t instanceof Element && (t.matches("input, select, textarea") || t.isContentEditable)) return;
   if (detail.classList.contains("shown")) return;
@@ -435,18 +481,35 @@ const detailOpen = document.getElementById("detail-open");
 const detailStatus = document.getElementById("detail-status");
 const detailCopy = document.getElementById("detail-copy");
 
-function openBook(book, el) {
-  // On touch, skip if it was a drag/swipe
+// click a spine: that book's cover pulls out and the neighbours part (no panel yet)
+function selectBook(book, el) {
   if (dragMoved) return;
-
   document.querySelectorAll(".book.sel").forEach((b) => b.classList.remove("sel"));
   el.classList.add("sel");
   currentBook = book;
+  centerOn(el);
+  hint.classList.add("gone");
+}
+
+function clearSelection() {
+  document.querySelectorAll(".book.sel").forEach((b) => b.classList.remove("sel"));
+  currentBook = null;
+  hint.classList.remove("gone");
+}
+
+// click the pulled-out cover: full-page book view
+function openBook(book, el) {
+  if (dragMoved) return;
+  if (!el.classList.contains("sel")) selectBook(book, el);
   detailOpener = el.querySelector(".spine") || el;
 
   document.getElementById("detail-title").textContent = book.title;
   document.getElementById("detail-author").textContent = book.author || "Unknown author";
   document.getElementById("detail-cover").style.backgroundImage = `url("${book._coverURL}")`;
+
+  document.getElementById("detail-eyebrow").textContent =
+    [topOf(book.series) || "General", (window.ABOUT || {})[book.path]?.kind].filter(Boolean).join(" · ");
+  document.getElementById("detail-line").textContent = (window.ABOUT || {})[book.path]?.takeaway || "";
 
   // notes written per book (app/about.js, built from data/about-*.json)
   const note = (window.ABOUT || {})[book.path];
@@ -454,13 +517,12 @@ function openBook(book, el) {
   if (note) {
     const chips = [note.kind, note.level].filter(Boolean)
       .map((t) => `<span class="chip">${escapeHtml(t)}</span>`).join("");
-    const tags = (note.topics || []).map((t) => `<span class="tag">${escapeHtml(t)}</span>`).join("");
+    const tags = (note.topics || []).map((t, n) => `<li><span>${String(n + 1).padStart(2, "0")}</span>${escapeHtml(t)}</li>`).join("");
     aboutEl.innerHTML =
       (chips ? `<div class="chips">${chips}</div>` : "") +
       (note.about ? `<p class="about">${escapeHtml(note.about)}</p>` : "") +
-      (note.takeaway ? `<h3>Core idea</h3><p>${escapeHtml(note.takeaway)}</p>` : "") +
-      (note.readIf ? `<h3>Read it if</h3><p>${escapeHtml(note.readIf)}</p>` : "") +
-      (tags ? `<div class="tags">${tags}</div>` : "");
+            (note.readIf ? `<h3>Read it if</h3><p>${escapeHtml(note.readIf)}</p>` : "") +
+      (tags ? `<h3>Topics</h3><ol class="topics">${tags}</ol>` : "");
   } else aboutEl.innerHTML = "";
 
   const meta = [];
@@ -492,16 +554,18 @@ function closeDetail() {
   detail.classList.remove("shown");
   detail.setAttribute("aria-hidden", "true");
   detail.inert = true;
-  document.querySelectorAll(".book.sel").forEach((b) => b.classList.remove("sel"));
-  currentBook = null;
   if (opener && opener.isConnected) opener.focus();
-  hint.classList.remove("gone");
 }
 document.getElementById("detail-close").addEventListener("click", () => closeDetail());
 
 // Close detail on backdrop tap (mobile)
 viewport.addEventListener("click", (e) => {
-  if (detail.classList.contains("shown") && !dragMoved) closeDetail();
+  // the drag handler captures the pointer, so clicks land here: hand them to the book under the cursor
+  const hit = !dragMoved && document.elementFromPoint(e.clientX, e.clientY)?.closest(".book");
+  if (hit && hit._open) { hit._open(); return; }
+  if (dragMoved) return;
+  if (detail.classList.contains("shown")) closeDetail();
+  else clearSelection();
 });
 
 detailStatus.addEventListener("click", () => {
@@ -679,6 +743,7 @@ addEventListener("resize", () => {
 
 document.getElementById("shelf-prev").addEventListener("click", () => nudge(-1));
 document.getElementById("shelf-next").addEventListener("click", () => nudge(1));
+document.getElementById("shelf-random").addEventListener("click", () => { dragMoved = false; randomBook(); });
 
 // ---------- go ----------
 buildTabs();

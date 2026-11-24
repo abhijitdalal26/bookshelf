@@ -11,6 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%277%27 fill=%27%230a0a0a%27/%3E%3Crect x=%277%27 y=%277%27 width=%275%27 height=%2718%27 rx=%271%27 fill=%27%23fff%27/%3E%3Crect x=%2714%27 y=%277%27 width=%275%27 height=%2718%27 rx=%271%27 fill=%27%234C76B6%27/%3E%3Crect x=%2721%27 y=%277%27 width=%275%27 height=%2718%27 rx=%271%27 fill=%27%23B3202A%27/%3E%3C/svg%3E">
 <link rel="stylesheet" href="./shelf.css">
 </head>
 <body>
@@ -54,16 +55,25 @@
 </main>
 
 <aside id="detail" aria-hidden="true" inert role="dialog" aria-labelledby="detail-title">
-  <button id="detail-close" aria-label="Close book details">×</button>
-  <div id="detail-cover" role="img" aria-label="Book cover"></div>
-  <h2 id="detail-title"></h2>
-  <div id="detail-author"></div>
-  <div id="detail-about"></div>
-  <div id="detail-meta"></div>
-  <div class="actions">
-    <a id="detail-open" class="btn primary" target="_blank" rel="noopener">Open PDF</a>
-    <button id="detail-status" class="btn"></button>
-    <button id="detail-copy" class="btn ghost">Copy path</button>
+  <div class="dp-top">
+    <button id="detail-close" aria-label="Close book details"><span aria-hidden="true">&times;</span> Close</button>
+    <span class="dp-label">My bookshelf</span>
+  </div>
+  <div class="dp-grid">
+    <div class="dp-text">
+      <p id="detail-eyebrow" class="dp-eyebrow"></p>
+      <h2 id="detail-title"></h2>
+      <p id="detail-line" class="dp-line"></p>
+      <div id="detail-author"></div>
+      <div id="detail-about"></div>
+      <div id="detail-meta"></div>
+      <div class="actions">
+        <a id="detail-open" class="btn primary" target="_blank" rel="noopener">Open PDF</a>
+        <button id="detail-status" class="btn"></button>
+        <button id="detail-copy" class="btn ghost">Copy path</button>
+      </div>
+    </div>
+    <div class="dp-cover"><div id="detail-cover" role="img" aria-label="Book cover"></div></div>
   </div>
 </aside>
 
@@ -80,6 +90,7 @@
 
 <div id="shelf-nav">
   <button id="shelf-prev" aria-label="Scroll shelf left">&#8592;</button>
+  <button id="shelf-random" aria-label="Pick a random book" class="pill">Random</button>
   <button id="shelf-next" aria-label="Scroll shelf right">&#8594;</button>
 </div>
 

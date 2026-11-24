@@ -1,0 +1,529 @@
+[
+ {
+  "path": "D:/Books/Fiction/Douglas Adams/1_The Hitchhiker's Guide to the Galaxy_ The Illustrated Edition.pdf",
+  "about": "Earth is demolished to make way for a hyperspace bypass, and Arthur Dent escapes with his alien friend Ford Prefect, a researcher for the guidebook of the title. What follows is a rambling, absurd trip through space told with dry British humour. Comedy matters more than plot.",
+  "kind": "Comic science fiction",
+  "topics": [
+   "Space comedy",
+   "Satire",
+   "Absurdism",
+   "Adventure"
+  ],
+  "level": "General",
+  "readIf": "Read it if you want a fast, funny sci-fi romp that pokes fun at bureaucracy and the meaning of life.",
+  "takeaway": "Cosmic stakes are best met with humour and a towel."
+ },
+ {
+  "path": "D:/Books/Fiction/Douglas Adams/2_The Restaurant at the End of the Universe.pdf",
+  "about": "The second Hitchhiker's book continues the crew's wandering through time and space, including a visit to a famously odd dining spot. It keeps the first book's jokes, digressions and satire while the cast pursues no clear goal. Best read right after volume one.",
+  "kind": "Comic science fiction",
+  "topics": [
+   "Space comedy",
+   "Satire",
+   "Time travel",
+   "Sequel"
+  ],
+  "level": "General",
+  "readIf": "Read it if you finished the first book and want more of the same wit.",
+  "takeaway": "The universe is absurd, and the fun is in how people cope with it."
+ },
+ {
+  "path": "D:/Books/Fiction/Douglas Adams/3_Life, the universe, and everything.pdf",
+  "about": "Volume three sends the characters into a galaxy-wide problem involving cricket, an old conflict and the fate of the universe. It mixes slapstick with satire about war and bureaucracy. It continues directly from the previous books.",
+  "kind": "Comic science fiction",
+  "topics": [
+   "Space comedy",
+   "Satire",
+   "Sequel",
+   "Adventure"
+  ],
+  "level": "General",
+  "readIf": "Read it if you are working through the series in order.",
+  "takeaway": "Even galactic crises are played for laughs and philosophical shrugs."
+ },
+ {
+  "path": "D:/Books/Fiction/Douglas Adams/4_So Long, and Thanks For All the Fish.pdf",
+  "about": "In the fourth book, Arthur finds his way back to a very changed Earth and gets entangled in a quieter, more personal story. The tone is gentler and more romantic than earlier volumes, though still funny. Series knowledge helps.",
+  "kind": "Comic science fiction",
+  "topics": [
+   "Space comedy",
+   "Romance",
+   "Satire",
+   "Sequel"
+  ],
+  "level": "General",
+  "readIf": "Read it if you want the series' softer, more reflective entry.",
+  "takeaway": "Comedy and tenderness can share the same story."
+ },
+ {
+  "path": "D:/Books/Fiction/Douglas Adams/5_Mostly harmless.pdf",
+  "about": "The fifth and final Hitchhiker's novel brings the regular characters back together in a darker, more chaotic story. It still carries the series' dry humour and satire of corporate and media culture. Read after the earlier four.",
+  "kind": "Comic science fiction",
+  "topics": [
+   "Space comedy",
+   "Satire",
+   "Sequel",
+   "Series finale"
+  ],
+  "level": "General",
+  "readIf": "Read it if you want to complete the series.",
+  "takeaway": "The series ends with the same mix of absurdity and fatalism it began with."
+ },
+ {
+  "path": "D:/Books/Fiction/Frank_Herberts_Dune_Saga_Collection_Books_1_-_6_-_Frank_Herbert.pdf",
+  "about": "A bundle of six novels set in a far-future empire built around the desert planet Arrakis and its prized spice. The series follows one family's rise and the long consequences of their power across thousands of years. It blends politics, ecology, religion and prophecy.",
+  "kind": "Science fiction",
+  "topics": [
+   "Politics",
+   "Ecology",
+   "Religion",
+   "Power",
+   "Far future"
+  ],
+  "level": "Intermediate",
+  "readIf": "Read it if you like dense, idea-driven science fiction about power and destiny.",
+  "takeaway": "Charismatic leaders and prophecy are dangerous, and ecology shapes civilisations."
+ },
+ {
+  "path": "D:/Books/Fiction/Pride-and-prejudice.pdf",
+  "about": "Elizabeth Bennet, one of five sisters, navigates family pressure, marriage expectations and a proud, reserved gentleman named Darcy in Regency England. Wit, social comedy and sharp observation drive the story. Misjudgments on both sides are the central tension.",
+  "kind": "Classic novel",
+  "topics": [
+   "Romance",
+   "Class",
+   "Manners",
+   "Marriage",
+   "Satire"
+  ],
+  "level": "General",
+  "readIf": "Read it for a classic that is witty, readable and very influential.",
+  "takeaway": "First impressions and pride can blind people, and self-knowledge is part of love."
+ },
+ {
+  "path": "D:/Books/Fiction/Tolkien/The Fellowship of the Ring.pdf",
+  "about": "The first part of The Lord of the Rings: Frodo inherits a dangerous ring and sets out with companions to destroy it. This volume covers the journey from the Shire to the breaking of the Fellowship. It sets up the world and tone of the whole trilogy.",
+  "kind": "Epic fantasy",
+  "topics": [
+   "Quest",
+   "Good vs evil",
+   "Friendship",
+   "Worldbuilding"
+  ],
+  "level": "General",
+  "readIf": "Read it if you want the foundational modern fantasy epic, starting with volume one.",
+  "takeaway": "Small, ordinary people can bear the greatest burdens."
+ },
+ {
+  "path": "D:/Books/Fiction/Tolkien/TheHobbit-J.R.R.Tolkien.pdf",
+  "about": "Bilbo Baggins, a comfortable hobbit, is pulled into an adventure with a company of dwarves to reclaim treasure from a dragon. It is lighter and more childlike in tone than The Lord of the Rings, with riddles, trolls and a memorable cast. It also introduces the world of Middle-earth.",
+  "kind": "Fantasy novel",
+  "topics": [
+   "Adventure",
+   "Quest",
+   "Dragons",
+   "Middle-earth"
+  ],
+  "level": "General",
+  "readIf": "Read it as an accessible entry to Tolkien's world.",
+  "takeaway": "Courage and cleverness can come from unlikely people."
+ },
+ {
+  "path": "D:/Books/Fiction/Tolkien/Tolkien-J.-The-lord-of-the-rings-HarperCollins-ebooks-2010.pdf",
+  "about": "The complete Lord of the Rings in one volume: a hobbit's quest to destroy a ring of power, and the wider war against the dark lord who made it. It covers all three parts of the story, with deep history, languages and landscapes. The pace is slower and more descriptive than modern fantasy.",
+  "kind": "Epic fantasy",
+  "topics": [
+   "Quest",
+   "War",
+   "Myth",
+   "Worldbuilding",
+   "Good vs evil"
+  ],
+  "level": "General",
+  "readIf": "Read it if you want the full epic in a single file.",
+  "takeaway": "Power corrupts, and resisting it takes humility, friendship and perseverance."
+ },
+ {
+  "path": "D:/Books/Fiction/crime-and-punishment00dostiala.pdf",
+  "about": "A poor former student in St Petersburg commits a crime he thinks he can justify, then is consumed by guilt and fear while an investigator closes in. It is a psychological study of conscience, poverty and moral reasoning. Much of the drama is internal.",
+  "kind": "Classic novel",
+  "topics": [
+   "Psychology",
+   "Guilt",
+   "Morality",
+   "Poverty",
+   "Russian literature"
+  ],
+  "level": "Intermediate",
+  "readIf": "Read it if you want a deep, intense novel about conscience.",
+  "takeaway": "Rationalising a wrong does not free a person from moral consequences."
+ },
+ {
+  "path": "D:/Books/Fiction/william.pdf",
+  "about": "A single-volume collection of William Shakespeare's plays and poems, including comedies, histories, tragedies and sonnets. It is reference-style material rather than a single narrative. Text is in Early Modern English.",
+  "kind": "Plays and poetry",
+  "topics": [
+   "Drama",
+   "Tragedy",
+   "Comedy",
+   "Sonnets",
+   "Elizabethan"
+  ],
+  "level": "Intermediate",
+  "readIf": "Read it to dip into any play or poem as needed.",
+  "takeaway": "A foundational body of work about love, power, ambition and human nature."
+ },
+ {
+  "path": "D:/Books/History/Age of Empire 1875-1914.pdf",
+  "about": "Hobsbawm surveys the 'long nineteenth century' from about 1875 to 1914, when industrial capitalism, imperial expansion and mass politics reshaped the world. He covers economics, empire, social change, the arts and the road to war. It is analytical rather than a simple chronicle.",
+  "kind": "Social and economic history",
+  "topics": [
+   "Imperialism",
+   "Capitalism",
+   "Europe",
+   "Politics",
+   "World War I origins"
+  ],
+  "level": "Intermediate",
+  "readIf": "Read it if you want to understand how the world was set up before 1914.",
+  "takeaway": "Economic rivalry and imperial competition set the stage for the First World War."
+ },
+ {
+  "path": "D:/Books/History/Alexander the Great _ a new history.pdf",
+  "about": "Heckel gives a scholarly, concise account of Alexander's life and conquests, weighing the surviving ancient sources. It examines his military campaigns and how his reputation was constructed. It aims to be a critical overview rather than a romantic biography.",
+  "kind": "Biographical history",
+  "topics": [
+   "Ancient Greece",
+   "Macedonia",
+   "Military history",
+   "Persia"
+  ],
+  "level": "Intermediate",
+  "readIf": "Read it if you want a source-aware biography of Alexander.",
+  "takeaway": "Alexander's achievements are real, but the sources that describe them need careful reading."
+ },
+ {
+  "path": "D:/Books/History/Guns, Germs, and Steel_ The Fates of Human Societies by Jared Diamond.pdf",
+  "about": "Diamond asks why some societies came to dominate others, and argues geography and environment, not innate differences, explain it. He traces the roles of domesticated plants and animals, disease, writing and technology. It is broad, big-picture history.",
+  "kind": "Popular big-picture history",
+  "topics": [
+   "Geography",
+   "Agriculture",
+   "Disease",
+   "Inequality",
+   "Civilisations"
+  ],
+  "level": "General",
+  "readIf": "Read it if you want a sweeping explanation of global historical inequality.",
+  "takeaway": "Environmental advantages, not biology, shaped which societies rose to power."
+ },
+ {
+  "path": "D:/Books/History/Prisoners of Geography.pdf",
+  "about": "Marshall looks at regions including Russia, China, the US and Europe and shows how mountains, rivers and coastlines shape politics and strategy. Each chapter is short and aimed at a general reader. It is a simple way into geopolitics.",
+  "kind": "Geopolitics",
+  "topics": [
+   "Geography",
+   "Geopolitics",
+   "Foreign policy",
+   "Strategy"
+  ],
+  "level": "Beginner",
+  "readIf": "Read it if you want a quick, readable primer on why geography drives world politics.",
+  "takeaway": "Geography limits and guides what nations can do, and often explains their choices."
+ },
+ {
+  "path": "D:/Books/History/Sapiens a Brief History of Humankind — Yuval Noah Harari.pdf",
+  "about": "Harari tells the story of humankind from early humans through the agricultural, scientific and industrial revolutions. He argues shared myths and fictions let large groups cooperate. It is a readable, opinionated overview.",
+  "kind": "Popular big-picture history",
+  "topics": [
+   "Human evolution",
+   "Agriculture",
+   "Myths",
+   "Capitalism",
+   "Science"
+  ],
+  "level": "Beginner",
+  "readIf": "Read it for an engaging overview of the whole human story.",
+  "takeaway": "Shared stories, not just biology, built human societies."
+ },
+ {
+  "path": "D:/Books/History/The Dawn of Everything_ A New History of Humanity.pdf",
+  "about": "Graeber and Wengrow challenge the standard story that societies march from small egalitarian bands to hierarchical states. Using archaeology and anthropology, they argue early humans experimented with many political forms. It questions long-held assumptions about inequality and freedom.",
+  "kind": "Anthropology and history",
+  "topics": [
+   "Early societies",
+   "Inequality",
+   "Archaeology",
+   "Politics",
+   "Freedom"
+  ],
+  "level": "Intermediate",
+  "readIf": "Read it if you want to rethink how societies arose.",
+  "takeaway": "Human societies were more varied and deliberate than the standard narrative suggests."
+ },
+ {
+  "path": "D:/Books/History/The Great Leveler.pdf",
+  "about": "Scheidel argues that across history, large reductions in inequality have usually followed violent shocks: mass-mobilisation war, revolution, state collapse and plague. He reviews evidence from the Stone Age to the present. The tone is data-driven and sobering.",
+  "kind": "Economic history",
+  "topics": [
+   "Inequality",
+   "War",
+   "Revolution",
+   "Plague",
+   "Wealth"
+  ],
+  "level": "Intermediate",
+  "readIf": "Read it if you want a long-run, evidence-based view of inequality.",
+  "takeaway": "Peaceful reforms have rarely reduced inequality as much as catastrophes have."
+ },
+ {
+  "path": "D:/Books/History/The History of the Ancient World_ From the Earliest Accounts to the Fall of Rome.pdf",
+  "about": "Bauer offers a continuous narrative of the ancient world, covering Mesopotamia, Egypt, India, China, Greece and Rome up to the fall of Rome. She weaves the regions together chronologically. It is accessible and story-driven.",
+  "kind": "Narrative history",
+  "topics": [
+   "Ancient history",
+   "Mesopotamia",
+   "Greece",
+   "Rome",
+   "Early empires"
+  ],
+  "level": "Beginner",
+  "readIf": "Read it if you want a clear single-volume grounding in ancient history.",
+  "takeaway": "Ancient civilisations developed in parallel and were more connected than often assumed."
+ },
+ {
+  "path": "D:/Books/History/The Origins of the Modern World_ A Global and Environmental Narrative from .pdf",
+  "about": "Marks explains how the modern world emerged, rejecting the idea that Europe was inevitably destined to lead. He argues contingent factors, the environment and global connections mattered. It is a short, thematic survey.",
+  "kind": "Global and environmental history",
+  "topics": [
+   "Industrialisation",
+   "Global economy",
+   "Environment",
+   "Asia and Europe"
+  ],
+  "level": "Intermediate",
+  "readIf": "Read it for a concise alternative to Eurocentric accounts of modernity.",
+  "takeaway": "The modern world resulted from contingent, global and ecological factors rather than European destiny."
+ },
+ {
+  "path": "D:/Books/History/The Silk Road_ A New History of the World.pdf",
+  "about": "Frankopan retells world history with Central Asia and the trade routes at the centre instead of Europe. He follows empires, religions, commerce and conflict across the connecting routes from antiquity to the present. It shifts the usual perspective.",
+  "kind": "Narrative history",
+  "topics": [
+   "Trade",
+   "Central Asia",
+   "Empires",
+   "Religion",
+   "Geopolitics"
+  ],
+  "level": "Intermediate",
+  "readIf": "Read it if you want world history seen from the East and the middle.",
+  "takeaway": "Connections between regions, not isolated powers, shaped world history."
+ },
+ {
+  "path": "D:/Books/History/The Story of Civilization/1 Our Oriental Heritage.pdf",
+  "about": "Volume one of Durant's eleven-volume series covers the early civilisations of the Near East, India, China and Japan, with a preliminary look at early human culture. It surveys religion, philosophy, art and society as well as politics. It is a very large, readable general history.",
+  "kind": "Narrative cultural history",
+  "topics": [
+   "Ancient Near East",
+   "India",
+   "China",
+   "Japan",
+   "Religion"
+  ],
+  "level": "General",
+  "readIf": "Read it as the starting point of the series for a broad view of Eastern civilisations.",
+  "takeaway": "Civilisation is a cumulative human achievement built across cultures."
+ },
+ {
+  "path": "D:/Books/History/The Story of Civilization/10 Rousseau and Revolution.pdf",
+  "about": "Volume ten covers 1756-1789 in Europe, highlighting thinkers like Rousseau, Kant and the late Enlightenment, plus politics and the road to revolution. It discusses culture, art and ideas alongside events. Part of Durant's long series.",
+  "kind": "Narrative cultural history",
+  "topics": [
+   "Enlightenment",
+   "Rousseau",
+   "Europe",
+   "Revolution",
+   "18th century"
+  ],
+  "level": "General",
+  "readIf": "Read it if you are interested in the ideas and personalities of the late Enlightenment.",
+  "takeaway": "Ideas and cultural change helped prepare the ground for revolution."
+ },
+ {
+  "path": "D:/Books/History/The Story of Civilization/11 The Age of Napoleon.pdf",
+  "about": "The final volume covers Europe from 1789 to 1815, following the French Revolution, Napoleon's rise and the wars that reshaped the continent. It also describes cultural and intellectual life of the period. It closes Durant's series.",
+  "kind": "Narrative cultural history",
+  "topics": [
+   "Napoleon",
+   "French Revolution",
+   "Europe",
+   "Wars"
+  ],
+  "level": "General",
+  "readIf": "Read it for a rounded portrait of the Napoleonic era and its culture.",
+  "takeaway": "Napoleon's career changed Europe's politics and spread revolutionary ideas."
+ },
+ {
+  "path": "D:/Books/History/The Story of Civilization/2 The Life of Greece.pdf",
+  "about": "Volume two tells the story of Greek civilisation from its early beginnings through the classical era to the Roman conquest. It looks at politics, philosophy, art, literature and daily life. It is part of Durant's multi-volume series.",
+  "kind": "Narrative cultural history",
+  "topics": [
+   "Ancient Greece",
+   "Philosophy",
+   "Athens",
+   "Art",
+   "Literature"
+  ],
+  "level": "General",
+  "readIf": "Read it if you want a cultural overview of ancient Greece.",
+  "takeaway": "Greek achievements in thought and art shaped Western civilisation."
+ },
+ {
+  "path": "D:/Books/History/The Story of Civilization/3 Caesar and Christ.pdf",
+  "about": "Volume three covers Rome from its origins to the early fourth century, including the Republic, the empire and the rise of Christianity. It combines political narrative with religion, law and culture. Part of Durant's series.",
+  "kind": "Narrative cultural history",
+  "topics": [
+   "Rome",
+   "Republic",
+   "Empire",
+   "Early Christianity"
+  ],
+  "level": "General",
+  "readIf": "Read it for a broad story of Roman civilisation and the rise of Christianity.",
+  "takeaway": "Rome's institutions and the spread of Christianity shaped the Western world."
+ },
+ {
+  "path": "D:/Books/History/The Story of Civilization/4 The Age of Faith.pdf",
+  "about": "Volume four surveys roughly 325 to 1300 across Christian, Islamic and Jewish worlds, plus Byzantium and medieval Europe. It looks at religion, art, scholarship and daily life. It is among the longest in the series.",
+  "kind": "Narrative cultural history",
+  "topics": [
+   "Medieval history",
+   "Byzantium",
+   "Islam",
+   "Christianity",
+   "Judaism"
+  ],
+  "level": "General",
+  "readIf": "Read it if you want a wide view of the medieval world across faiths.",
+  "takeaway": "Religion organised medieval society and drove its culture and learning."
+ },
+ {
+  "path": "D:/Books/History/The Story of Civilization/5 The Renaissance.pdf",
+  "about": "Volume five covers Italian civilisation from about 1304 to 1576, discussing artists, writers, rulers and popes. It combines political narrative with art, literature and ideas. It is part of Durant's series.",
+  "kind": "Narrative cultural history",
+  "topics": [
+   "Renaissance",
+   "Italy",
+   "Art",
+   "Humanism",
+   "Papacy"
+  ],
+  "level": "General",
+  "readIf": "Read it if you enjoy art and cultural history of renaissance Italy.",
+  "takeaway": "The Renaissance revived classical learning and renewed European culture."
+ },
+ {
+  "path": "D:/Books/History/The Story of Civilization/6 The Reformation.pdf",
+  "about": "Volume six covers the religious upheavals in Europe from Wyclif to Calvin and beyond, and the wider events of 1300-1564 outside Italy. It follows the religious, political and cultural currents of the era. Part of the series.",
+  "kind": "Narrative cultural history",
+  "topics": [
+   "Reformation",
+   "Luther",
+   "Calvin",
+   "Religion",
+   "Europe"
+  ],
+  "level": "General",
+  "readIf": "Read it for a broad account of the Reformation and its context.",
+  "takeaway": "Religious reform was tied up with politics, culture and everyday life."
+ },
+ {
+  "path": "D:/Books/History/The Story of Civilization/7 The Age of Reason Begins.pdf",
+  "about": "Volume seven covers about 1558-1648, spanning Elizabethan England, the early scientific revolution and Europe's religious wars. It touches on figures like Shakespeare, Bacon and Galileo. Part of Durant's series.",
+  "kind": "Narrative cultural history",
+  "topics": [
+   "Early modern Europe",
+   "Science",
+   "Elizabethan England",
+   "Religious wars"
+  ],
+  "level": "General",
+  "readIf": "Read it for a view of Europe as modern thought and science began to emerge.",
+  "takeaway": "New ways of thinking were emerging even amid religious conflict."
+ },
+ {
+  "path": "D:/Books/History/The Story of Civilization/8 The Age of Louis XIV.pdf",
+  "about": "Volume eight covers 1648-1715, centred on Louis XIV's France, with attention to other European states and culture. It discusses politics, court life, art and ideas. Part of Durant's series.",
+  "kind": "Narrative cultural history",
+  "topics": [
+   "Louis XIV",
+   "France",
+   "Absolutism",
+   "Europe",
+   "17th century"
+  ],
+  "level": "General",
+  "readIf": "Read it if you are interested in absolutist France and its cultural flowering.",
+  "takeaway": "Centralised monarchy shaped both politics and culture in this era."
+ },
+ {
+  "path": "D:/Books/History/The Story of Civilization/9 The Age of Voltaire.pdf",
+  "about": "Volume nine covers 1715-1756, focusing on the Enlightenment's early phase, with Voltaire as a central figure. It covers politics, thought and culture across Europe. Part of Durant's series.",
+  "kind": "Narrative cultural history",
+  "topics": [
+   "Enlightenment",
+   "Voltaire",
+   "Europe",
+   "18th century",
+   "Ideas"
+  ],
+  "level": "General",
+  "readIf": "Read it for the early Enlightenment and its personalities.",
+  "takeaway": "Reason, criticism and tolerance became central themes in European thought."
+ },
+ {
+  "path": "D:/Books/History/The new silk roads.pdf",
+  "about": "Frankopan examines how the rise of Asia, new infrastructure and shifting alliances are reshaping the global order. It is a present-day sequel to his history of the Silk Roads. He focuses on trade, power and geopolitics.",
+  "kind": "Contemporary geopolitics",
+  "topics": [
+   "Geopolitics",
+   "Asia",
+   "Trade",
+   "China",
+   "Global order"
+  ],
+  "level": "Intermediate",
+  "readIf": "Read it if you want a current look at shifting global power toward Asia.",
+  "takeaway": "The world's centre of gravity is moving east."
+ },
+ {
+  "path": "D:/Books/History/chip+war.pdf",
+  "about": "Miller traces the history of semiconductors and why they are central to modern economies and geopolitics. He covers the companies, governments and rivalries, particularly the US, Taiwan and China. It reads as a business and strategy narrative.",
+  "kind": "Economic and technological history",
+  "topics": [
+   "Semiconductors",
+   "Geopolitics",
+   "Technology",
+   "Taiwan",
+   "Supply chains"
+  ],
+  "level": "Intermediate",
+  "readIf": "Read it if you want to understand why chips drive modern global competition.",
+  "takeaway": "Control over advanced chips has become a core source of national power."
+ },
+ {
+  "path": "D:/Books/History/paul-kennedy-the-rise-and-fall-of-the-great-powers-19891.pdf",
+  "about": "Kennedy examines how great powers have risen and declined since 1500, arguing that economic strength underpins military power. Overextension is a recurring problem. It surveys Spain, France, Britain, Russia, the US and others.",
+  "kind": "Economic and strategic history",
+  "topics": [
+   "Great powers",
+   "Economics",
+   "Military strategy",
+   "Empires",
+   "Decline"
+  ],
+  "level": "Advanced",
+  "readIf": "Read it if you want a rigorous long-run analysis of power and decline.",
+  "takeaway": "Powers rise on economic strength and decline when commitments outrun resources."
+ }
+]

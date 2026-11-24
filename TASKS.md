@@ -164,12 +164,9 @@ Spec:
 Accept: books visibly have thickness and a page block when hovered/selected; shelf still
 scrolls and all controls work; no new libraries or CDN assets.
 
-## Deferred — Drive sync is ON HOLD
+## Drive sync is ON (approved 2026-11-24)
 
-Do not start these while sync stays local-only. Revisit only if the user asks to
-re-enable Drive sync.
-
-### [ ] T3 — sync API must not be callable cross-origin
+### [x] T3 — sync API must not be callable cross-origin
 
 Where: `scripts/serve.js` — CORS block (~82) and POST handler (~94).
 

@@ -35,14 +35,17 @@ TASKS.md         work queue and backlog
   Rearranging files is fine when it improves the shelf — rescan afterwards and confirm
   the count and that every path in `books.js` still exists.
 
-## Drive sync — ON HOLD
+## Drive sync — ON
 
-- User directive (2026-11-24): keep everything local. Do not upload or sync to Drive.
-- The Sync Drive button is hidden and `POST /api/sync-drive` returns 403 unless the
-  server runs with `ENABLE_DRIVE_SYNC=1`. Never set that flag or re-enable the button
-  without explicit user approval.
-- If ever re-enabled: Drive is `J:\My Drive`, books mirror to `J:\My Drive\Books` via
-  robocopy, skipping xsim and World History screenshots.
+- User approved (2026-11-24). The Sync Drive button works; `POST /api/sync-drive` mirrors
+  `D:\Books` to `J:\My Drive\Books` with robocopy, add/update only (no /PURGE, never deletes).
+  Skips xsim and World History screenshots. Set `DISABLE_DRIVE_SYNC=1` to turn it off.
+- The API is same-origin only (no CORS; cross-origin POSTs get 403).
+
+## Per-book notes
+
+`data/about-*.json` hold hand-written notes (about, kind, level, topics, readIf, takeaway) keyed by book path.
+Run `node scripts/build-about.js` to merge them into the generated `app/about.js`.
 
 ## Conventions
 
@@ -55,13 +58,13 @@ TASKS.md         work queue and backlog
 - User-facing strings short and minimal, like the reference site.
 - Accessibility: real buttons, aria labels, focus-visible outlines, `prefers-reduced-motion`
   respected in both CSS and the RAF physics.
-- Ask before: infinite-loop tape, custom cursor, dark mode, EPUB engine, self-hosting
-  fonts, anything touching Drive sync.
+- Ask before: custom cursor, dark mode, EPUB engine, self-hosting fonts.
 
-## Status
+## Interaction (matches the reference site)
 
-Done: scanning + Open Library enrichment, 3D spine shelf with momentum, cover reveal,
-detail panel (dialog/inert/focus return), tabs, search, sort, read status, in-app PDF
-reader, path-traversal guard, no-cache headers, resize handling, 3D page block/top edge,
-hint restore (T11).
-Open: see `TASKS.md` (deferred sync items and backlog only).
+Hover lifts a spine; click pulls its cover out (neighbours part, tape recentres); click the
+pulled-out cover for the full-page book view; Escape / empty click backs out. The tape loops.
+
+## Repo
+
+Private GitHub repo `abhijitdalal26/bookshelf` (code + notes only; books, books.js, about.js are git-ignored).
