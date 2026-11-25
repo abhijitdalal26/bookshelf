@@ -1,12 +1,12 @@
 // Scans a books directory and emits app/books.js with metadata for the 3D shelf.
-// Usage: node scripts/scan-books.js [booksDir] [outFile]
+// Usage: node scripts/scan-books.js [booksDir] [outFile]   (booksDir defaults to shelf.config.json)
 // Improvements: better title guessing, hierarchical series, smarter Open Library matching,
 // fallback metadata for known books, skip non-book files.
 
 const fs = require("fs");
 const path = require("path");
 
-const BOOKS_DIR = process.argv[2] || "D:\\Books";
+const BOOKS_DIR = path.resolve(process.argv[2] || require("./config").booksDir);
 const OUT_FILE = process.argv[3] || path.join(__dirname, "..", "app", "books.js");
 
 const EXTS = new Set([".pdf", ".epub", ".mobi", ".azw3", ".djvu"]);
@@ -14,7 +14,8 @@ const EXTS = new Set([".pdf", ".epub", ".mobi", ".azw3", ".djvu"]);
 // Open Library cover by numeric cover id (each id below was checked to return an image)
 const ol = (id) => `https://covers.openlibrary.org/b/id/${id}-M.jpg`;
 
-// Known metadata overrides for files the Open Library search gets wrong
+// Known metadata overrides for files the Open Library search gets wrong (matched by file name;
+// they were written for the original owner's library and do nothing for files you don't have)
 const OVERRIDES = {
   "France.pdf": { title: "Constitution of France", author: "", year: 1958, pages: null, cover: null },
   "Germany.pdf": { title: "Basic Law for the Federal Republic of Germany", author: "", year: 1949, pages: null, cover: null },
@@ -338,7 +339,11 @@ async function main() {
   }
   process.stderr.write("\n");
 
-  fs.writeFileSync(OUT_FILE, "window.BOOKS = " + JSON.stringify(books, null, 1) + ";\n");
+  const root = BOOKS_DIR.replace(/\\/g, "/").replace(/\/$/, "");
+  fs.writeFileSync(
+    OUT_FILE,
+    `window.BOOKS_ROOT = ${JSON.stringify(root)};\n` + "window.BOOKS = " + JSON.stringify(books, null, 1) + ";\n"
+  );
   console.log(`Wrote ${books.length} books to ${OUT_FILE}`);
 }
 

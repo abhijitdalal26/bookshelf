@@ -1,7 +1,7 @@
 // Local server: serves the shelf app + the real book files + Drive sync API.
 // App:  http://localhost:8931/
-// PDFs: http://localhost:8931/files/<relative path under D:\Books>
-// Sync: POST http://localhost:8931/api/sync-drive  (copies D:\Books → J:\My Drive\Books)
+// PDFs: http://localhost:8931/files/<path under booksDir>
+// Sync: POST http://localhost:8931/api/sync-drive  (mirrors booksDir into driveDir, if set)
 // Status: GET http://localhost:8931/api/sync-status
 // Notes:  GET/POST http://localhost:8931/api/notes  (reader highlights, kept in data/notes.json)
 const http = require("http");
@@ -11,12 +11,11 @@ const { exec } = require("child_process");
 
 const ROOT = path.join(__dirname, "..");
 const APP_DIR = path.join(ROOT, "app");
-const BOOKS_DIR = "D:\\Books";
-const DRIVE_DIR = "J:\\My Drive\\Books";
-const PORT = 8931;
+// paths and port come from shelf.config.json (see scripts/config.js)
+const { booksDir: BOOKS_DIR, driveDir: DRIVE_DIR, driveSkip: DRIVE_SKIP, port: PORT } = require("./config");
 const NOTES_FILE = path.join(ROOT, "data", "notes.json");
-// Drive sync is on (user-approved 2026-11-24); set DISABLE_DRIVE_SYNC=1 to turn it off.
-const DRIVE_SYNC_ENABLED = process.env.DISABLE_DRIVE_SYNC !== "1";
+// Drive sync runs only when driveDir is set (Windows only: it uses robocopy); DISABLE_DRIVE_SYNC=1 turns it off.
+const DRIVE_SYNC_ENABLED = !!DRIVE_DIR && process.platform === "win32" && process.env.DISABLE_DRIVE_SYNC !== "1";
 
 const MIME = {
   ".html": "text/html; charset=utf-8",
@@ -60,15 +59,15 @@ function syncToDrive() {
   }
 
   // Check if drive is available
-  if (!fs.existsSync("J:\\My Drive")) {
-    syncState = { status: "error", message: "Google Drive (J:\\) is not connected", lastSync: syncState.lastSync, progress: "" };
+  if (!fs.existsSync(path.dirname(DRIVE_DIR))) {
+    syncState = { status: "error", message: "Google Drive is not connected", lastSync: syncState.lastSync, progress: "" };
     return { ok: false, message: syncState.message };
   }
 
   syncState = { status: "syncing", message: "Starting sync…", lastSync: syncState.lastSync, progress: "0%" };
 
   // Use robocopy for efficient incremental sync (only copies changed files)
-  const cmd = `robocopy "${BOOKS_DIR}" "${DRIVE_DIR}" /E /XD "xsim" "World History by Khan Academy" /XF *.png *.txt *.tcl *.opt *.v *.sh *.prj *.ini /R:2 /W:2 /NFL /NDL /NJH /NJS /NC /NS /NP`; // add/update only: never deletes files already in Drive
+  const cmd = `robocopy "${BOOKS_DIR}" "${DRIVE_DIR}" /E${DRIVE_SKIP.map((d) => ` /XD "${d}"`).join("")} /XF *.png *.txt *.tcl *.opt *.v *.sh *.prj *.ini /R:2 /W:2 /NFL /NDL /NJH /NJS /NC /NS /NP`; // add/update only: never deletes files already in Drive
 
   const proc = exec(cmd, { timeout: 0 }, (err, stdout, stderr) => {
     // robocopy exit codes 0-7 = success, 8+ = error

@@ -1,5 +1,5 @@
 // Uploads the books to the private R2 bucket the hosted shelf reads from (worker/).
-// Keys are the path under D:\Books, as in books.js. Only new or changed files are sent;
+// Keys are the path under booksDir, as in books.js. Only new or changed files are sent;
 // what's been uploaded is remembered in data/r2-manifest.json (size + modified time).
 // Usage: node scripts/upload-r2.js [--dry]
 
@@ -7,14 +7,14 @@ const fs = require("fs");
 const path = require("path");
 const { spawn } = require("child_process");
 
-const ROOT = "D:\\Books";
-const BUCKET = "bookshelf";
+const { booksDir: ROOT, r2Bucket: BUCKET } = require("./config");
 const MANIFEST = path.join(__dirname, "..", "data", "r2-manifest.json");
 const dry = process.argv.includes("--dry");
 
 global.window = {};
 require(path.join(__dirname, "..", "app", "books.js"));
-const keys = window.BOOKS.map((b) => b.path.replace(/^D:\/Books\//i, ""));
+const prefix = window.BOOKS_ROOT + "/";
+const keys = window.BOOKS.map((b) => b.path.slice(prefix.length));
 
 let manifest = {};
 try { manifest = JSON.parse(fs.readFileSync(MANIFEST, "utf8")); } catch {}

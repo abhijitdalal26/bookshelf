@@ -1,12 +1,15 @@
 // Where book files come from.
-// Local (scripts/serve.js): /files/<path under D:\Books>.
+// Local (scripts/serve.js): /files/<path under the books folder>.
 // Hosted (Vercel): the same path under "My Drive/Books", read with the owner's own Google sign-in
 // (read-only Drive scope). Nothing is shared publicly; the short-lived token stays in this browser.
 
 (() => {
   const cfg = window.SHELF_CONFIG || {};
   const local = /^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname);
-  const rel = (book) => book.path.replace(/^D:\/Books\//i, "");
+  // a book's path under the books folder (books.js has absolute paths plus BOOKS_ROOT)
+  const prefix = (window.BOOKS_ROOT || "") + "/";
+  const rel = (window.relPath = (book) =>
+    book.path.toLowerCase().startsWith(prefix.toLowerCase()) ? book.path.slice(prefix.length) : book.path);
 
   if (!local && !cfg.googleClientId) {
     const off = async () => { throw new Error("Reading isn’t set up on this site yet."); };

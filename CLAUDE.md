@@ -27,6 +27,9 @@ scripts\
   make-covers.py renders covers from PDFs (PyMuPDF) into app/covers + app/covers.js
   serve.js       local server on port 8931: serves app + PDFs under /files/, notes at /api/notes
   upload-r2.js   uploads new/changed PDFs to the private R2 bucket `bookshelf` (wrangler)
+  config.js      loads shelf.config.json (booksDir, port, driveDir, driveSkip, r2Bucket)
+shelf.config.json  local settings, git-ignored (example: shelf.config.example.json)
+docs\            README screenshot + demo video
 worker\          Cloudflare Worker `bookshelf-files`: serves PDFs from R2 to the hosted site,
                  only for the owner's Google token (checked against tokeninfo + Drive about)
 refs\            cloned reference repos, inspiration only, not used at runtime
@@ -53,8 +56,11 @@ TASKS.md         work queue and backlog
 - Highlights sync between devices via `notes.json` in the Drive app-data folder; locally they live
   in `data/notes.json` (git-ignored).
 
-## Books folder (D:\Books)
+## Books folder (D:\Books, set as booksDir in shelf.config.json)
 
+- The repo is public and meant to be easy to adapt: no personal paths in code; they live in
+  shelf.config.json. books.js starts with `window.BOOKS_ROOT`; use `window.relPath(book)` (drive.js)
+  for a book's path under the books folder.
 - Each top-level folder is a collection tab; subfolders become "Parent / Child" tabs.
 - Keep it tidy: no loose files in the root, no duplicates, folders named by topic.
   Rearranging files is fine when it improves the shelf — rescan afterwards and confirm

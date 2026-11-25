@@ -4,7 +4,7 @@
 //   The token must belong to this site's OAuth client and to the owner's Google account.
 //   Answers { pass, exp, sizes }: a pass signed with SIGNING_KEY (valid PASS_DAYS) and every
 //   book's size, so the reader needs no further round trips to Google or extra HEAD requests.
-// GET /<path under D:\Books>?p=<pass>   (Range supported)
+// GET /<path under the books folder>?p=<pass>   (Range supported)
 //   The pass is checked locally (HMAC), so each page request costs only the R2 read. It rides in
 //   the URL, and a single Range header is CORS-safelisted, so there is no preflight either.
 

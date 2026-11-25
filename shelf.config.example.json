@@ -1,0 +1,7 @@
+{
+  "booksDir": "books",
+  "port": 8931,
+  "driveDir": "",
+  "driveSkip": [],
+  "r2Bucket": "bookshelf"
+}

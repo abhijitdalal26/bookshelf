@@ -14,3 +14,8 @@ app/covers/
 data/notes.json
 data/r2-manifest.json
 .wrangler/
+
+# your own settings (copy shelf.config.example.json) and the default books folder
+shelf.config.json
+books/
+/bookshelf.mp4

@@ -49,7 +49,7 @@ function inkOn(hex) {
   return y > 150 ? "#141414" : "#f4f2ed";
 }
 
-const relPath = (book) => book.path.replace(/^D:\/Books\//i, "");
+const relPath = window.relPath; // drive.js
 
 // series = from path segments
 function seriesOf(book) {
@@ -746,7 +746,7 @@ document.getElementById("shelf-prev").addEventListener("click", () => setT(Math.
 document.getElementById("shelf-next").addEventListener("click", () => setT(Math.round(st.T) + 1));
 document.getElementById("shelf-open").addEventListener("click", () => openBook());
 
-// ---------- links to a book (#<path under D:\Books>) ----------
+// ---------- links to a book (#<path under the books folder>) ----------
 // centre the book the address names (widening the filter if it's hidden) and open its page
 function openFromHash() {
   const rel = decodeURIComponent(location.hash.slice(1));
