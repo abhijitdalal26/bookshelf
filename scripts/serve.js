@@ -3,6 +3,7 @@
 // PDFs: http://localhost:8931/files/<relative path under D:\Books>
 // Sync: POST http://localhost:8931/api/sync-drive  (copies D:\Books → J:\My Drive\Books)
 // Status: GET http://localhost:8931/api/sync-status
+// Notes:  GET/POST http://localhost:8931/api/notes  (reader highlights, kept in data/notes.json)
 const http = require("http");
 const fs = require("fs");
 const path = require("path");
@@ -13,6 +14,7 @@ const APP_DIR = path.join(ROOT, "app");
 const BOOKS_DIR = "D:\\Books";
 const DRIVE_DIR = "J:\\My Drive\\Books";
 const PORT = 8931;
+const NOTES_FILE = path.join(ROOT, "data", "notes.json");
 // Drive sync is on (user-approved 2026-11-24); set DISABLE_DRIVE_SYNC=1 to turn it off.
 const DRIVE_SYNC_ENABLED = process.env.DISABLE_DRIVE_SYNC !== "1";
 
@@ -115,6 +117,34 @@ http
       const result = syncToDrive();
       res.writeHead(result.ok ? 200 : 400, { "Content-Type": "application/json" });
       res.end(JSON.stringify(result));
+      return;
+    }
+
+    // reader highlights and notes, kept in data/notes.json
+    if (req.url === "/api/notes" && req.method === "GET") {
+      res.writeHead(200, { "Content-Type": "application/json", "Cache-Control": "no-store" });
+      res.end(fs.existsSync(NOTES_FILE) ? fs.readFileSync(NOTES_FILE) : "{}");
+      return;
+    }
+    if (req.url === "/api/notes" && req.method === "POST") {
+      let body = "";
+      req.on("data", (c) => {
+        body += c;
+        if (body.length > 5e6) { res.writeHead(413); res.end(); req.destroy(); }
+      });
+      req.on("end", () => {
+        try {
+          const data = JSON.parse(body);
+          if (!data || typeof data !== "object" || Array.isArray(data)) throw new Error("bad notes");
+          fs.writeFileSync(NOTES_FILE + ".tmp", JSON.stringify(data, null, 1));
+          fs.renameSync(NOTES_FILE + ".tmp", NOTES_FILE);
+          res.writeHead(200, { "Content-Type": "application/json" });
+          res.end('{"ok":true}');
+        } catch {
+          res.writeHead(400, { "Content-Type": "application/json" });
+          res.end('{"ok":false}');
+        }
+      });
       return;
     }
 

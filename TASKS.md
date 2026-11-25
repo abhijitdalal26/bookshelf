@@ -2,15 +2,60 @@
 
 Sole developer: Claude. See CLAUDE.md for conventions.
 
-## Hard constraint — local only
+## Drive
 
-As of 2026-11-24 the user wants everything local. Do not sync or upload to Google Drive.
-The Sync Drive button is hidden and `POST /api/sync-drive` returns 403 unless the server
-is started with `ENABLE_DRIVE_SYNC=1`. Never enable that flag without explicit user approval.
+Sync is ON (user-approved 2026-11-24): Sync Drive button mirrors D:\Books → J:\My Drive\Books
+(add/update only). `DISABLE_DRIVE_SYNC=1` turns it off. 2026-11-25: user asked to connect Drive
+on the hosted site — client ID set and deployed (see R1).
 
 ## Current assignment
 
-None. Pick from Backlog only with user approval.
+### [ ] R1 — redesign, e-reader, hosted site (2026-11-24)
+
+Done: shelf rebuilt (real PDF covers + cover-coloured spines, centre book always pulled out,
+scroll flips covers, culling); PDF.js reader (page-turn, crop margins, text/reflow mode,
+highlights + notes, contents panel, resume); deployed to https://abhijit-bookshelf.vercel.app.
+Then: reading position syncs with notes (cross-device), progress bar on spines + progress line on
+the book page, installable web app (manifest + icons in app/icons), phone header fix.
+
+2026-11-25: OAuth client ID added to `app/config.js` and redeployed. Pending: user confirms
+sign-in + opening a book on the hosted site.
+Added: header "Sign in" button (hosted only, hides once signed in) and a "Sign in with Google"
+button in the reader when the popup is blocked; clearer pop-up-blocked message.
+On "All", the dark pill follows the centre book's collection as you scroll ("All" keeps a ring).
+Sign-in switched from the GIS popup to a full-page OAuth redirect (token in the fragment, then
+back to the book and into the reader). Needs both site URLs (with trailing /) under the OAuth
+client's Authorized redirect URIs.
+2026-11-25 reader: highlight colours (yellow/green/blue/pink; last pick is the default; recolour
+from the note card), undo/redo (Ctrl+Z, Ctrl+Y / Ctrl+Shift+Z) for add/delete/edit/recolour,
+x to delete in the Notes list. Faster Drive opens: path->id map cached in localStorage
+(7 days, rebuilt on a miss or failed load), built right after sign-in, 1 MB range chunks.
+2026-11-25 R2: all 136 PDFs (1.6 GB) in private bucket `bookshelf`, served by Worker
+`bookshelf-files` (owner's Google token only). Reader fetches byte ranges itself and keeps them in
+Cache Storage; Drive is the fallback. Sign-in kept in localStorage with silent re-auth.
+Worker v2: /session checks the Google token once and returns a 7-day HMAC pass + all sizes;
+piece requests carry ?p=<pass> (no Google calls, no preflight). 256 KB pieces in Cache Storage
+(`bookshelf-books-v3`), tail+head fetched in parallel, centre book prefetched after 600 ms, whole
+book auto-fetched while reading (<=40 MB), last 3 in-progress books preloaded after page load.
+Measured on the owner's connection (~0.4-0.6 s per request, ~0.5 MB/s): new book 2-5 s,
+reopen/preloaded 0.3-0.7 s. The bottleneck is the connection; workers.dev routes via SIN, not BOM.
+Domain readwithabhijit.vercel.app added (old one kept).
+
+### [x] R2 — shelf motion matches the reference (2026-11-25)
+
+Ported the reference shelf's motion model (from its shipped JS): covers turn to face you
+continuously as you scroll/drag past the centre, neighbours part, snap to a book; hover lift +
+cover tilt; click a spine to centre it. Book page opens out of the cover (clip-path + tilt,
+rising text, ink-in cover) and folds back on Esc / Back. Added `#<path>` links, a fade-in,
+large-cover preload, screen-reader announcements and an "Open book" button for keyboard users.
+Not done (ask first per CLAUDE.md): the reference's custom ring cursor ("Open" on the cover).
+
+### [x] R3 — two-page spread in the reader (2026-11-25)
+
+Wide landscape screens (≥900px) show two pages like an open book: cover alone, then 2–3, 4–5…
+Shared crop box so both pages stand level, a soft fold shade, turns move a whole spread, the
+counter reads "2–3 / 300", highlights land on whichever page the selection starts on.
+"Two pages" switch under Aa (stored in localStorage); off in fit-width and text mode.
 
 ## Sprint 1 — correctness and safety (P0)
 

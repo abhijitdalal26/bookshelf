@@ -1,0 +1,15 @@
+# Cloudflare Worker that serves the books from R2 to the hosted shelf (see index.js).
+# Deploy: cd worker && npx wrangler deploy
+name = "bookshelf-files"
+main = "index.js"
+compatibility_date = "2026-11-01"
+workers_dev = true
+
+[[r2_buckets]]
+binding = "BOOKS"
+bucket_name = "bookshelf"
+
+[vars]
+GOOGLE_CLIENT_ID = "32388930333-nfqniv85c4p0fi2qniv7091q6p313vod.apps.googleusercontent.com"
+OWNER_EMAIL = "abhijitdalal2609@gmail.com"
+ALLOWED_ORIGINS = "https://readwithabhijit.vercel.app,https://abhijit-bookshelf.vercel.app"

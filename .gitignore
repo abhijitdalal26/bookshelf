@@ -6,3 +6,11 @@ app/about.js
 refs/
 node_modules/
 _*.tmp.js
+
+# vercel project link (deploys run from app/)
+app/.vercel/
+app/covers.js
+app/covers/
+data/notes.json
+data/r2-manifest.json
+.wrangler/
